@@ -123,6 +123,18 @@ if (defined('ENVIRONMENT'))
 	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
 
+        define('ROOTPATH', realpath(dirname(__FILE__)) . '/');
+
+
+// installed in the docroot?
+if (realpath(dirname(__FILE__)) == $_SERVER['DOCUMENT_ROOT'])
+{
+    define('ROOT', '/');
+}
+else
+{
+    define('ROOT', substr(ROOTPATH, strlen($_SERVER['DOCUMENT_ROOT'])+1));
+}
 
 // --------------------------------------------------------------------
 // END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
